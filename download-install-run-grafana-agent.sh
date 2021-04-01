@@ -18,8 +18,8 @@ integrations:
     enabled: true
   prometheus_remote_write:
     - basic_auth:
-        password: eyJrIjoiNTIwNzhiZGNhZWEwYmNkMWUyZGRhMDRmMjE0OWRkNTVjZTBjOWFkZSIsIm4iOiJhZW5ndXNyb29uZXl0ZXN0LWVhc3lzdGFydC1wcm9tLXB1Ymxpc2hlciIsImlkIjoyODM3MzR9
-        username: 9826
+        password: $PASS
+        username: $USER
       url: https://prometheus-us-central1.grafana.net/api/prom/push
 prometheus:
   configs:
@@ -38,5 +38,5 @@ EOF
 
 # Run the agent
  
-./agent-linux-amd64 --config.file=agent-config.yaml 
+nohup ./agent-linux-amd64 --config.file=agent-config.yaml & 
 
