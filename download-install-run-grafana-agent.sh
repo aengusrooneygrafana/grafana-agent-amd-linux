@@ -9,8 +9,8 @@ chmod a+x "$agent-linux-amd64";
 
 # Set up the agent configurations 
 
-export USER=$MYUSER
-export PASS=$MYPASSWORD
+USER=$MYUSER
+PASS=$MYPASSWORD
  
 cat <<EOF > ./agent-config.yaml
 integrations:
