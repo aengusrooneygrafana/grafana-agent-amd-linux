@@ -6,8 +6,12 @@ git clone https://github.com/aengusrooneygrafana/grafana-agent-amd-linux.git
 
 cd grafana-agent-amd-linux/ 
 
-export MYUSER=<my-grafana-dot-com-hosted-metrics-user> 
+export MYUSER1=<my-grafana-dot-com-hosted-METRICS-user> 
   
-export MYPASSWORD=<my-grafana-dot-com-hosted-metrics-password>
+export MYPASSWORD1=<my-grafana-dot-com-hosted-METRICS-password>
+
+export MYUSER2=<my-grafana-dot-com-hosted-LOGS-user> 
+  
+export MYPASSWORD2=<my-grafana-dot-com-hosted-LOGS-password>
 
 ./download-install-run-grafana-agent.sh 
