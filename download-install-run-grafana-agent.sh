@@ -48,12 +48,34 @@ loki:
             labels:
               job: varlogs
               __path__: /var/log/*log
-      - job_name: dmesg
+      - job_name: dmesg-logs
         static_configs:
           - targets: [localhost]
             labels:
               job: dmesg
               __path__: /var/log/dmesg
+      - job_name: ec2-logs
+        ec2_sd_configs:
+          - region: eu-west-2
+            access_key: AKIA5FW5RZWL2I6MVQXK
+            secret_key: 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
+        relabel_configs:
+          - source_labels: [__meta_ec2_tag_Name]
+            target_label: name
+            action: replace
+          - source_labels: [__meta_ec2_instance_id]
+            target_label: instance_id
+            action: replace
+          - source_labels: [__meta_ec2_availability_zone]
+            target_label: zone
+            action: replace
+          - action: replace
+            replacement: /var/log/**.log
+            target_label: __path__
+          - source_labels: [__meta_ec2_private_dns_name]
+            regex: "(.*)"
+            target_label: instance
+
     clients:
       - url: https://$USER2:$PASS2@logs-prod-us-central1.grafana.net/loki/api/v1/push
 EOF
