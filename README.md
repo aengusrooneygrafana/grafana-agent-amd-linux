@@ -15,3 +15,7 @@ export MYUSER2="my-grafana-dot-com-hosted-LOGS-user"
 export MYPASSWORD2="my-grafana-dot-com-hosted-LOGS-password"
 
 ./download-install-run-grafana-agent.sh 
+
+export MYKEY1="my-aws-access-key"
+
+export MYSECRET1="my-aws-secret"
