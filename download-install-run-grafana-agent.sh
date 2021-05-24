@@ -13,6 +13,8 @@ USER1=$MYUSER1
 PASS1=$MYPASSWORD1
 USER2=$MYUSER2
 PASS2=$MYPASSWORD2
+KEY1=$MYKEY1
+SECRET1=$MYSECRET1
  
 cat <<EOF > ./agent-config.yaml
 integrations:
@@ -57,8 +59,8 @@ loki:
       - job_name: ec2-logs
         ec2_sd_configs:
           - region: eu-west-2
-            access_key: AKIA5FW5RZWL2I6MVQXK
-            secret_key: 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
+            access_key: $MYKEY1
+            secret_key: $MYSECRET1
         relabel_configs:
           - source_labels: [__meta_ec2_tag_Name]
             target_label: name
