@@ -6,13 +6,13 @@ git clone https://github.com/aengusrooneygrafana/grafana-agent-amd-linux.git
 
 cd grafana-agent-amd-linux/ 
 
-export MYUSER1="my-grafana-dot-com-hosted-METRICS-user" 
+export PROM_PUBLISHER_KEY="my-grafana-dot-com-hosted-METRICS-key"   
 
-export MYPASSWORD1="my-grafana-dot-com-hosted-METRICS-password" 
+export PROM_USER="my-grafana-dot-com-hosted-METRICS-user"
 
-export MYUSER2="my-grafana-dot-com-hosted-LOGS-user"   
+export LOKI_PUBLISHER_KEY="my-grafana-dot-com-hosted-LOGS-key"
 
-export MYPASSWORD2="my-grafana-dot-com-hosted-LOGS-password"
+export LOKI_USER="my-grafana-dot-com-hosted-LOGS-user"   
 
 # if running on AWS EC2 
 
