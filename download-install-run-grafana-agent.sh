@@ -5,7 +5,7 @@
  
 curl -O -L "https://github.com/grafana/agent/releases/latest/download/agent-linux-amd64.zip";
 unzip "agent-linux-amd64.zip";
-chmod a+x "$agent-linux-amd64";
+chmod a+x "agent-linux-amd64";
 
 # Set up the agent configurations 
  
