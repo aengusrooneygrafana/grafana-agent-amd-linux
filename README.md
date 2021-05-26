@@ -16,9 +16,9 @@ export LOKI_USER="my-grafana-dot-com-hosted-LOGS-user"
 
 # if running on AWS EC2 
 
-export MYKEY1="my-aws-access-key"
+export AWSKEY="my-aws-access-key"
 
-export MYSECRET1="my-aws-secret"
+export AWSSECRET="my-aws-secret"
 
 # run the agent 
 
