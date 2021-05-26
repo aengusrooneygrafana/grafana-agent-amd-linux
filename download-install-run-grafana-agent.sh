@@ -8,13 +8,6 @@ unzip "agent-linux-amd64.zip";
 chmod a+x "$agent-linux-amd64";
 
 # Set up the agent configurations 
-
-USER1=$MYUSER1
-PASS1=$MYPASSWORD1
-USER2=$MYUSER2
-PASS2=$MYPASSWORD2
-KEY1=$MYKEY1
-SECRET1=$MYSECRET1
  
 cat <<EOF > ./agent-config.yaml
 integrations:
@@ -22,16 +15,16 @@ integrations:
     enabled: true
   prometheus_remote_write:
     - basic_auth:
-        password: $PASS1
-        username: $USER1
+        password: $PROM_PUBLISHER_KEY
+        username: $PROM_USER
       url: https://prometheus-us-central1.grafana.net/api/prom/push
 prometheus:
   configs:
     - name: integrations
       remote_write:
         - basic_auth:
-            password: $PASS1 
-            username: $USER1 
+            password: $PROM_PUBLISHER_KEY 
+            username: $PROM_USER 
           url: https://prometheus-us-central1.grafana.net/api/prom/push
   global:
     scrape_interval: 15s
@@ -79,7 +72,7 @@ loki:
             target_label: instance
 
     clients:
-      - url: https://$USER2:$PASS2@logs-prod-us-central1.grafana.net/loki/api/v1/push
+      - url: https://$LOKI_USER:$LOKI_PUBLISHER_KEY@logs-prod-us-central1.grafana.net/loki/api/v1/push
 EOF
 
 # Run the agent
