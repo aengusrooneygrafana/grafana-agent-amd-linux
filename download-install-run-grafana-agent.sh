@@ -77,5 +77,5 @@ EOF
 
 # Run the agent
  
-nohup ./agent-linux-amd64 --config.file=agent-config.yaml & 
+sudo nohup ./agent-linux-amd64 --config.file=agent-config.yaml & 
 
