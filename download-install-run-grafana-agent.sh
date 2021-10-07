@@ -93,8 +93,8 @@ loki:
       - job_name: ec2-logs
         ec2_sd_configs:
           - region: eu-west-2
-            access_key: AKIA5FW5RZWLRZMOEYBR
-            secret_key: 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
+            access_key: $AWSKEY
+            secret_key: $AWSSECRET
         relabel_configs:
           - source_labels: [__meta_ec2_tag_Name]
             target_label: name
