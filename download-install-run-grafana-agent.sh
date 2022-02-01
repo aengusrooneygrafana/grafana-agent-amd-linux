@@ -43,6 +43,8 @@ prometheus:
               secret_key: $AWSSECRET
           static_configs:
             - targets: ['localhost:8080']
+              labels: 
+                static_label_test: 'static_label_value_A'
           relabel_configs:
             - source_labels: [__meta_ec2_tag_Name]
               target_label: name
@@ -84,11 +86,27 @@ loki:
             labels:
               job: varlogs
               __path__: /var/log/*log
+        pipeline_stages: 
+          - metrics: 
+              byte_count_total: 
+                  config: 
+                      action: add 
+                      count_entry_bytes: true 
+                      match_all: true 
+                  description: A running counter of all bytes per stream with their corresponding labels
+                  type: counter 
+              line_count_total: 
+                  config: 
+                      action: inc 
+                      match_all: true 
+                  description: A running counter of all lines with their corresponding labels
+                  type: counter 
       - job_name: dmesg-logs
         static_configs:
           - targets: [localhost]
             labels:
               job: dmesg
+              log_type: 'dmesg' 
               __path__: /var/log/dmesg
       - job_name: ec2-logs
         ec2_sd_configs:
