@@ -1,6 +1,6 @@
-# grafana-agent-amd-linux
+# grafana-agent-amd-linux - instructions to run 
 
-sudo yum install wget unzip git curl 
+sudo -y yum install wget unzip git curl 
 
 git clone https://github.com/aengusrooneygrafana/grafana-agent-amd-linux.git 
 
